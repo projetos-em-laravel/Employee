@@ -1871,6 +1871,12 @@ pre code {
   border-color: #454d55;
 }
 
+.table .thead-purple th {
+    color: #fff;
+    background-color: #b721ff;
+    border-color: #b721ff;
+  }
+
 .table .thead-light th {
   color: #495057;
   background-color: #e9ecef;
@@ -6807,6 +6813,11 @@ button.bg-dark:focus {
 
 .bg-white {
   background-color: #fff !important;
+}
+
+.bg-purple {
+  background-color: #b721ff !important;
+  color: #fff;
 }
 
 .bg-transparent {

@@ -12,14 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function() {
-    Route::resource('/employee', 'EmployeeController');
-    Route::post('/employee/{id}', 'EmployeeController@destroy');
+    Route::resource('/game', 'GameController');
+    Route::post('/game/{id}', 'GameController@destroy');
 });
 
