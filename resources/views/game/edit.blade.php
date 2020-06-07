@@ -32,9 +32,29 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Year</span>
+                                </div>
+                                <input type="number" id="year" name="year" class="form-control" value="{{old('year', $game->year)}}">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
+                                </div>
+                                <select class="custom-select" id="category" name="category">
+                                    <option {{old('category', $game->category)=="acarde"? 'selected':''}} value="acarde">acarde</option>
+                                    <option {{old('category', $game->category)=="rpg"? 'selected':''}}  value="rpg">rpg</option>
+                                    <option {{old('category', $game->category)=="action"? 'selected':''}} value="action">action</option>
+                                    <option {{old('category', $game->category)=="corrida"? 'selected':''}} value="corrida">corrida</option>
+                                </select>
+                                <!-- <input type="text" id="category" name="category" class="form-control" value="{{old('category', $game->category)}}"> -->
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">description</span>
                                 </div>
-                                <input type="text" id="description" name="description" class="form-control" value="{{old('description', $game->description)}}">
+                                <textarea rows="2"  id="description" name="description" class="form-control">{{{ old('description', $game->description) }}}</textarea>
                             </div>
 
                             <div class="custom-file">

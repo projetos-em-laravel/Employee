@@ -6,43 +6,24 @@ use Illuminate\Support\Facades\Auth;
 use Image;
 use File;
 use App\Models\Game;
-use Illuminate\Http\Request;
+use App\Http\Requests\GameRequest;
 use Validator;
 
 class GameController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $games = Auth::user()->game->all();
         return view('game.index', compact('games'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('game.create');
     }
 
-    public function store(Request $request)
+    public function store(GameRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name'          => 'required|min:3|max:100',
-            'description'   => 'required|min:10|max:191',
-            'image'         => 'required'
-        ]);
-
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
 
         $data = $request->all();
         $data['user_id'] = Auth::id();
@@ -73,19 +54,12 @@ class GameController extends Controller
                             ->withInput();
 
         }
-
-
         Game::create($data);
-        return redirect()->route('game.index')->with('success', 'Game success create');
+        toastr()->success('Game success create');
+        return redirect()->route('game.index');
     }
 
-    /**
-    * Create a thumbnail of specified size
-    *
-    * @param string $path path of thumbnail
-    * @param int $width
-    * @param int $height
-    */
+
     public function createThumbnail($path, $width, $height)
     {
         $img = Image::make($path)->resize($width, $height, function ($constraint) {
@@ -107,26 +81,8 @@ class GameController extends Controller
         return view('game.edit', compact('game'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(GameRequest $request, $id)
     {
-
-
-        $validator = Validator::make($request->all(), [
-            'name'          => 'required|min:3|max:100',
-            'description'   => 'required|min:10|max:191',
-        ]);
-
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
         $game = Game::find($id);
 
         $data = $request->all();
@@ -161,7 +117,8 @@ class GameController extends Controller
         }
 
         $game->update($data);
-        return redirect()->route('game.index')->with('success', 'Update success');
+        toastr()->success('Game success update');
+        return redirect()->route('game.index');
     }
 
     public function destroy($id)
@@ -171,6 +128,7 @@ class GameController extends Controller
         File::delete('storage/games/thumbnail/'.$game->image);
         $game->delete();
 
-        return redirect()->back()->with('success', 'Game success delete!');
+        toastr()->success('Game success delete');
+        return redirect()->back();
     }
 }

@@ -17,9 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function() {
     Route::resource('/game', 'GameController');
     Route::post('/game/{id}', 'GameController@destroy');
+    Route::post('/screenshot/{game_id}', 'ScreenshotController@store')->name('screenshot.store');
+    Route::put('/screenshot/{id}', 'ScreenshotController@update')->name('screenshot.update');
+    Route::delete('/screenshot/{id}', 'ScreenshotController@destroy')->name('screenshot.destroy');
 });
 

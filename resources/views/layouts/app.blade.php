@@ -22,13 +22,15 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css/material-design-iconic-font.min.css') }}">
     @stack('styles')
     <!-- Styles -->
+    <link href="{{ asset('custom/css/styles.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/css/app.css') }}" rel="stylesheet">
+    @toastr_css
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-purple shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{route('game.index')}}">
                     {{ config('app.name', 'Game King') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -83,6 +85,9 @@
             @yield('content')
         </main>
     </div>
+    @jquery
+    @toastr_js
+    @toastr_render
     @stack('js')
 </body>
 </html>
