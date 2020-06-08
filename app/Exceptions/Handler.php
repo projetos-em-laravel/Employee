@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +47,24 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+
+
+        if($exception instanceof ValidationException) {
+            toastr()->error('error validating');
+
+            if($request->has('modal')) {
+                if(request()->isMethod('post')){
+                    $request->session()->flash('errorsCreate');
+                }
+                if(request()->isMethod('put')){
+                    $request->session()->flash('errorsUpdate');
+                }
+            }
+
+        }
+
+
         return parent::render($request, $exception);
     }
 }

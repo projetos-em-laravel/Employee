@@ -22,6 +22,7 @@
                     </div>
                 @endif
                 <div class="form-row">
+                    <input type="hidden" id="modal" name="modal" value="create">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Title</span>

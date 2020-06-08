@@ -47,7 +47,6 @@
                                     <option {{old('category', $game->category)=="action"? 'selected':''}} value="action">action</option>
                                     <option {{old('category', $game->category)=="corrida"? 'selected':''}} value="corrida">corrida</option>
                                 </select>
-                                <!-- <input type="text" id="category" name="category" class="form-control" value="{{old('category', $game->category)}}"> -->
                             </div>
 
                             <div class="input-group mb-3">

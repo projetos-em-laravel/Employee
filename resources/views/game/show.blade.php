@@ -1,6 +1,4 @@
 @extends('layouts.app')
-@push('styles')
-@endpush
 @section('content')
 <div class="container">
     <div class="row">
@@ -132,61 +130,6 @@
 <!-- /.tab-pane -->
 
 @push('js')
-    <script>
-        $(function() {
-            $('#screenshotModalUpdate').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget)
-                var id = button.data('id')
-                var title = button.data('title')
-                var subtitle = button.data('subtitle')
-                var description = button.data('description')
-                $('#edit-form').attr('action', '/screenshot/' + id)
-
-                var modal = $(this)
-                if(title) {
-                    modal.find('#title').val(title)
-                    modal.find('#subtitle').val(subtitle)
-                    modal.find('#description').val(description)
-                }
-                modal.find('.modal-title').text('Update screenshot ' + title)
-            });
-
-            $('#screenshotModalUpdate   ').on('hidden.bs.modal', function (e) {
-            $(this)
-                .find("input,textarea,select")
-                .val('')
-                .end()
-                .find("input[type=checkbox], input[type=radio]")
-                .prop("checked", "")
-                .end();
-                $('.error').remove();
-            });
-        });
-
-        $(function() {
-            $('#screenshotModalCreate').on('shown.bs.modal', function () {
-                $('#title').trigger('focus');
-            });
-
-            $('#screenshotModalCreate').on('hidden.bs.modal', function (e) {
-            $(this)
-                .find("input,textarea,select")
-                .val('')
-                .end()
-                .find("input[type=checkbox], input[type=radio]")
-                .prop("checked", "")
-                .end();
-                $('.error').remove();
-            });
-        });
-        $(document).ready(function() {
-            if ($('#errorsUpdate').length){
-                $('#screenshotModalUpdate').modal('show');
-            }
-            if ($('#errorsCreate').length){
-                $('#screenshotModalCreate').modal('show');
-            }
-        });
-    </script>
+    <script src="{{asset('custom/js/modalsCustom.js')}}"></script>
 @endpush
 @endsection

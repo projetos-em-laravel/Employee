@@ -37,6 +37,7 @@ This project was developed at the [Jonathan's Moon](#) with the following techno
 -  [toastr](https://github.com/yoeunes/toastr)
 -  [docker](https://www.docker.com/)
 -  [css](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+-  [JQuery](https://jquery.com/)
 -  [Bootstrap](https://getbootstrap.com/)
 -  [VS Code][vc]
 

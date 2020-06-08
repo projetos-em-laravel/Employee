@@ -53,9 +53,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">description</span>
                                 </div>
-                                <textarea rows="2" id="description" name="description" class="form-control">
-                                {{old('description')}}
-                                </textarea>
+                                <textarea rows="2" id="description" name="description" class="form-control">{{old('description')}}</textarea>
                             </div>
                             <div class="custom-file">
                                 <input type="file" name="image" class="custom-file-input" id="customFile" value="{{old('image')}}">

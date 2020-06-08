@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-<link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="{{asset('vendor/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -59,17 +59,8 @@
     </div>
 </div>
 @push('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-    <script>
-        $.noConflict();
-        jQuery( document ).ready(function( $ ) {
-            $('#myTable').DataTable({
-                "lengthMenu": [[3, 5, 10, 15, -1], [3, 5, 10, 15, "All"]]
-            } );
-        } );
-    </script>
+    <script src="{{asset('vendor/js/dataTables.min.js')}}"></script>
+    <script src="{{asset('vendor/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('custom/js/dataTableCustom.js')}}"></script>
 @endpush
 @endsection
