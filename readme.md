@@ -2,7 +2,7 @@
 <h1 align="center">
     <img alt="Jonathan's" src="https://i.pinimg.com/originals/52/1a/fa/521afaada5d1c270249703e2420fbbb3.png" />
     <br>
-    Real-state API Rest - Laravel PHP
+    Game King - Laravel PHP
 </h1>
 
 <p align="center">
