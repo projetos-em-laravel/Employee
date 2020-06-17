@@ -50,7 +50,7 @@ To clone and run this application, you'll only need [Docker](https://www.docker.
 $ git clone https://github.com/projetos-em-laravel/myProperty.git
 
 # Go into the repository
-$ cd myProperty
+$ cd GameKing
 
 # Change the access permissions of the run.sh file
 $ sudo docker-compose up
