@@ -20,7 +20,7 @@ class ScreenshotTableSeeder extends Seeder
                                     Issuu is the only platform loved
                                     by marketers and creatives',
                 'game_id' => 1,
-                'screenshot' => 'marioamazing.jpg',
+                'screenshot' => 'mariosmashjpeg',
             ],
             [
                 'title' => 'Mario amazing',
@@ -29,7 +29,7 @@ class ScreenshotTableSeeder extends Seeder
                                     Issuu is the only platform loved
                                     by marketers and creatives',
                 'game_id' => 1,
-                'screenshot' => 'mariosmash.jpg',
+                'screenshot' => 'marioamazingjpeg',
             ],
             [
                 'title' => 'Mario extreme',
@@ -38,7 +38,7 @@ class ScreenshotTableSeeder extends Seeder
                                     Issuu is the only platform loved
                                     by marketers and creatives',
                 'game_id' => 1,
-                'screenshot' => 'supermario.webp',
+                'screenshot' => 'marioextremejpeg',
             ],
         );
 

@@ -52,19 +52,23 @@ $ git clone https://github.com/projetos-em-laravel/myProperty.git
 # Go into the repository
 $ cd myProperty
 
-# Run the command and wait for the docker to be ready.
-$ chmod +x ./run.sh
-
 # Change the access permissions of the run.sh file
 $ sudo docker-compose up
+
+# Run the command and wait for the docker to be ready.
+$ chmod +x ./run.sh
 
 # Run the command to mount the php and nginx image on the docker
 # This will automatically perform the migrations and seeds, 
 # in addition to configuring and running your project via docker.
 $ sudo ./run.sh
 
+# Enter login and password
+  login: gamer@gmail.com
+  password: password
+
 # Execute to stop execution
-$ docker-compose down
+$ sudo docker-compose down
 ```
 
 ## :memo: License

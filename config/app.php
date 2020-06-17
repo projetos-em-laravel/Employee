@@ -167,7 +167,7 @@ return [
         /*
         * Package Toastr ...
         */
-        Yoeunes\Toastr\ToastrServiceProvider::class
+        Yoeunes\Toastr\ToastrServiceProvider::class,
 
         /*
          * Package Service Providers...

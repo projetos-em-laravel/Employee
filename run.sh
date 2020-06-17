@@ -12,3 +12,6 @@ docker exec -it gameking-app php artisan migrate
 
 echo Make seeder
 docker exec -it gameking-app php artisan db:seed
+
+echo Symbolic link
+php artisan storage:link
